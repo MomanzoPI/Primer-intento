@@ -13,27 +13,23 @@
       overflow-x: hidden;
     }
 
-
     .contact {
-        background-color: #333;
-        padding: 20px;
-        border-radius: 10px;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
     } 
     
-    
     .inside {
-        background-color: #0f0e0e;
-        padding: 20px;
-        border-radius: 10px;
+      background-color: #0f0e0e;
+      padding: 20px;
+      border-radius: 10px;
     }
-    
     
     .onside {
-        background-color: #191717;
-        padding: 10px;
-        border-radius: 5px;
+      background-color: #191717;
+      padding: 10px;
+      border-radius: 5px;
     }
-
 
     .navbar {
       background-color: #121211;
@@ -75,6 +71,13 @@
       height: 100vh;
       position: relative;
     }
+    .modal-title {
+      color: #000 ;
+    }
+    .black-text {
+      color: #000;
+    }
+
   </style>
 </head>
 <body>
@@ -106,6 +109,51 @@
 </nav>
 
 <div class="full-screen-background" style="background-image: url('Screenshot 2023-10-04 at 23.39.51.png');">
+</div>
+
+<div class="modal fade" id="surveyModal" tabindex="-1" aria-labelledby="surveyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" class="black-text" id="surveyModalLabel">¡Welcome to L'Genesis!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="black-text">For a better experience we'd like to ask you some questions:</p>
+        <p class="black-text">¿How did you come across with us?</p>
+        <select class="form-select mb-3" aria-label="Default select example">
+          <option selected>Choose your answer!</option>
+          <option value="1">Social Media</option>
+          <option value="2">Word to word</option>
+          <option value="3">Search on the internet</option>
+        </select>
+
+        <p class="black-text">¿Do you have any Website or Social Media of your organization?</p>
+        <select class="form-select mb-3" aria-label="Default select example">
+          <option selected>Choose your answer!</option>
+          <option value="1">I have a Website and Social Media</option>
+          <option value="2">I have only a Website</option>
+          <option value="3">I have only Social Media</option>
+          <option value="3">I don't have nether of them :(</option>
+        </select>
+
+        <p class="black-text">¿Would you like to have an iteractive and efective E-commerce experience to share?</p>
+        <select class="form-select mb-3" aria-label="Default select example">
+          <option selected>Choose your answer!</option>
+          <option value="1">Yess!!</option>
+          <option value="2">There's nothing i'd want more ;) </option>
+          <option value="3">No, I'm just taking a look!</option>
+        </select>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Enviar Respuestas</button>
+        <button type="button"
+
+ class="btn btn-secondary" data-bs-dismiss="modal">Saltar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="product-details" class="container mt-5">
@@ -143,9 +191,8 @@
       <div class="col-md-4">
         <img src="8B9A22B2-50D2-46C4-949C-5647DC75FCB3.jpg" class="img-fluid" alt="Team Member 1">
         <h4>Jeronimo Pereyra Iraola (Momo)</h4>
-        <p>Co-Founder & Comunity Manager</p>
+        <p>Co-Founder & Community Manager</p>
       </div>
-
     </div>
   </section>
 
@@ -153,25 +200,20 @@
     <h2 class="inside">Previous Works</h2>
     <div class="row">
       <div class="col-md-4">
-
         <img src="Screenshot 2023-10-05 at 00.56.51.png" class="img-fluid" alt="Previous Work 1">
         <p>Stainless Steel Beverage company focused on supporting the environment. </p>
       </div>
       <div class="col-md-8">
-
-        <p>With a basic study of shopify bases, we manage to have this website working in almost a week!
-            This is a good example of efectiveness on time and quality of design. 
+        <p>With a basic study of Shopify bases, we managed to have this website working in almost a week!
+          This is a good example of effectiveness on time and quality of design. 
         </p>
       </div>
     </div>
-
   </section>
-
 
   <section class="mb-5 contact">
     <h2 class="inside">Contact Us</h2>
     <p class="onside">Have questions or ready to start your e-commerce journey with us?</p>
-
     <form>
       <div class="mb-3">
         <label for="name" class="form-label">Your Name</label>
@@ -189,6 +231,32 @@
     </form>
   </section>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var surveyModal = new bootstrap.Modal(document.getElementById('surveyModal'), {
+      backdrop: 'static', 
+      keyboard: false
+    });
+    surveyModal.show();
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    document.getElementById('menu-toggle').addEventListener('change', function () {
+      document.body.classList.toggle('menu-open', this.checked);
+    });
+  });
+</script>
+
 </body>
 </html>
-
